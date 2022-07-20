@@ -57,10 +57,8 @@ class App extends Component {
       }
       return response.json()
     })
-    .then(data => console.log("Reservation deleted"))
+    .then(data => this.setState({reservations: data}))
     .catch(error => console.log(error.message))
-    const filteredReservations = this.state.reservations.filter(res => res.id !== event.target.parentNode.id);
-    this.setState({reservations: filteredReservations});
   }
 
   render() {
