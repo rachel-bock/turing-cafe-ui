@@ -28,6 +28,7 @@ class App extends Component {
     fetch('http://localhost:3001/api/v1/reservations', {
       method: "POST", 
       body: JSON.stringify({
+        id: reservation.id,
         name: reservation.name,
         date: reservation.date,
         time: reservation.time,
