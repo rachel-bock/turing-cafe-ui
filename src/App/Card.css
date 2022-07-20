@@ -1,4 +1,13 @@
 .reservation-card{
   background-color: white;
-  border: 2px solid black;
+  color: teal;
+  border: 5px solid teal;
+}
+
+button {
+  background-color: teal;
+  color: white;
+  width: 75%;
+  border: none;
+  margin: 10px;
 }
