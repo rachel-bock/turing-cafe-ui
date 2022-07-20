@@ -47,6 +47,22 @@ class App extends Component {
     .catch(error => console.log(error.message))
   }
 
+  deleteReservation = event => {
+    fetch(`http://localhost:3001/api/v1/reservations/${event.target.parentNode.id}`, {
+      method: "DELETE"
+    })
+    .then(response => {
+      if(!response.ok) {
+        return "Error occurred"
+      }
+      return response.json()
+    })
+    .then(data => console.log("Reservation deleted"))
+    .catch(error => console.log(error.message))
+    const filteredReservations = this.state.reservations.filter(res => res.id !== event.target.parentNode.id);
+    this.setState({reservations: filteredReservations});
+  }
+
   render() {
     return (
       <div className="App">
@@ -55,7 +71,7 @@ class App extends Component {
           <ReservationForm addRes={this.addReservation}/>
         </div>
         <div className='resy-container'>
-          <Reservations res={this.state.reservations}/>
+          <Reservations res={this.state.reservations} deleteRes={this.deleteReservation}/>
         </div>
       </div>
     )

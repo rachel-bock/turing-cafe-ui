@@ -1,10 +1,10 @@
 import React from 'react';
 import Card from './Card';
 
-const Reservations = ({res}) => {
+const Reservations = ({res, deleteRes}) => {
   const listing = res.map(reservation => {
     return (
-      <Card reservation={reservation}/>
+      <Card reservation={reservation} deleteRes={deleteRes} key={reservation.id}/>
     )
   })
 
