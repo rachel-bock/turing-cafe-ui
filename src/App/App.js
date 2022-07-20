@@ -6,7 +6,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      reservations = []
+      reservations: []
     }
   }
 
@@ -18,7 +18,7 @@ class App extends Component {
 
         </div>
         <div className='resy-container'>
-          <Reservations />
+          <Reservations res={this.state.reservations}/>
         </div>
       </div>
     )
