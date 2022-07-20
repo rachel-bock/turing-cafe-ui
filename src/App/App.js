@@ -10,6 +10,18 @@ class App extends Component {
     }
   }
 
+  componentDidMount = () => {
+    return fetch('http://localhost:3001/api/v1/reservations')
+      .then(response => {
+        if(!response.ok) {
+          return "Something went wrong with the fetch"
+        }
+        return response.json();
+      })
+      .then(data => this.setState({reservations: data}))
+      .catch(error => console.log(error.message));
+  }
+
   render() {
     return (
       <div className="App">
